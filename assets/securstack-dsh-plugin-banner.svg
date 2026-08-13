@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
   <title id="title">SecurStack DeepSeek Harness Plugin</title>
-  <desc id="desc">A crisp developer security banner showing SecurStack scan, policy, doctor, JSON, CLI, and dependency graph capabilities for DeepSeek Harness.</desc>
+  <desc id="desc">Clean SecurStack banner for DeepSeek Harness with SAST, SCA, DAST, secrets, IaC, policy, scan, and doctor coverage.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#081116"/>
-      <stop offset="0.44" stop-color="#0b1620"/>
-      <stop offset="1" stop-color="#101416"/>
+      <stop offset="0" stop-color="#071116"/>
+      <stop offset="0.55" stop-color="#0b1720"/>
+      <stop offset="1" stop-color="#0e1715"/>
     </linearGradient>
     <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#35d8ff"/>
@@ -15,146 +15,60 @@
       <stop offset="0" stop-color="#7cff9b"/>
       <stop offset="1" stop-color="#15c778"/>
     </linearGradient>
-    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffd166"/>
-      <stop offset="1" stop-color="#ff9f1c"/>
-    </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.1 0 0 0 0 0.9 0 0 0 0 0.7 0 0 0 0.45 0" result="glow"/>
-      <feMerge>
-        <feMergeNode in="glow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
     </filter>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.35"/>
-    </filter>
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M36 0H0V36" fill="none" stroke="#183241" stroke-width="1" opacity="0.35"/>
-      <circle cx="0" cy="0" r="1.4" fill="#20d6c8" opacity="0.35"/>
-    </pattern>
   </defs>
 
   <rect width="1280" height="640" fill="url(#bg)"/>
-  <rect y="352" width="1280" height="288" fill="url(#grid)" opacity="0.45"/>
-  <path d="M0 442C160 398 319 412 494 455C697 504 864 503 1031 454C1140 422 1225 421 1280 434V640H0Z" fill="#0b201c" opacity="0.42"/>
-  <circle cx="1034" cy="110" r="210" fill="#0ba1ff" opacity="0.08"/>
-  <circle cx="900" cy="468" r="220" fill="#21d46b" opacity="0.08"/>
+  <circle cx="1030" cy="96" r="230" fill="#1aa7ff" opacity="0.10"/>
+  <circle cx="870" cy="500" r="250" fill="#15c778" opacity="0.10"/>
+  <path d="M0 430C165 390 330 406 500 454C690 508 850 504 1035 452C1140 422 1228 420 1280 436V640H0Z" fill="#0b241f" opacity="0.42"/>
+  <g opacity="0.32" stroke="#183241" stroke-width="1">
+    <path d="M0 360H1280M0 396H1280M0 432H1280M0 468H1280M0 504H1280M0 540H1280M0 576H1280"/>
+    <path d="M36 340V640M72 340V640M108 340V640M144 340V640M180 340V640M216 340V640M252 340V640M288 340V640M324 340V640M360 340V640M396 340V640M432 340V640M468 340V640M504 340V640M540 340V640M576 340V640M612 340V640M648 340V640M684 340V640M720 340V640M756 340V640M792 340V640M828 340V640M864 340V640M900 340V640M936 340V640M972 340V640M1008 340V640M1044 340V640M1080 340V640M1116 340V640M1152 340V640M1188 340V640M1224 340V640M1260 340V640"/>
+  </g>
 
-  <g transform="translate(68 144)">
-    <text x="0" y="0" fill="#ffffff" font-family="Arial" font-size="74" font-weight="800" letter-spacing="0">SecurStack</text>
-    <text x="2" y="62" fill="#dce8ef" font-family="Arial" font-size="34" font-weight="500" letter-spacing="0">DeepSeek Harness Plugin</text>
-    <rect x="2" y="104" width="430" height="2" fill="url(#cyan)" opacity="0.7"/>
-    <g transform="translate(0 142)" font-family="Arial">
-      <g>
-        <circle cx="12" cy="12" r="7" fill="url(#green)"/>
-        <text x="32" y="19" fill="#b7cbd6" font-size="18">scan repositories</text>
-      </g>
-      <g transform="translate(0 42)">
-        <circle cx="12" cy="12" r="7" fill="url(#cyan)"/>
-        <text x="32" y="19" fill="#b7cbd6" font-size="18">policy gates</text>
-      </g>
-      <g transform="translate(0 84)">
-        <circle cx="12" cy="12" r="7" fill="url(#amber)"/>
-        <text x="32" y="19" fill="#b7cbd6" font-size="18">doctor diagnostics</text>
-      </g>
+  <g transform="translate(70 118)">
+    <text x="0" y="72" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800">SecurStack</text>
+    <text x="2" y="130" fill="#dce8ef" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="500">DeepSeek Harness Plugin</text>
+    <rect x="2" y="168" width="430" height="2" fill="url(#cyan)" opacity="0.78"/>
+    <text x="2" y="226" fill="#b7cbd6" font-family="Arial, Helvetica, sans-serif" font-size="21">AI-agent security tools powered by the SecurStack CLI</text>
+  </g>
+
+  <g transform="translate(70 395)" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">
+    <g><circle cx="10" cy="10" r="7" fill="#7cff9b"/><text x="30" y="17" fill="#cfe1e8">SAST code analysis</text></g>
+    <g transform="translate(0 42)"><circle cx="10" cy="10" r="7" fill="#35d8ff"/><text x="30" y="17" fill="#cfe1e8">SCA dependency checks</text></g>
+    <g transform="translate(0 84)"><circle cx="10" cy="10" r="7" fill="#ffd166"/><text x="30" y="17" fill="#cfe1e8">Secrets, IaC, DAST and policy gates</text></g>
+  </g>
+
+  <g transform="translate(620 116)" filter="url(#shadow)">
+    <rect width="560" height="365" rx="22" fill="#101e28" stroke="#2b90b8" stroke-width="2"/>
+    <rect width="560" height="50" rx="22" fill="#162b39"/>
+    <circle cx="30" cy="26" r="7" fill="#ff5f57"/>
+    <circle cx="55" cy="26" r="7" fill="#ffbd2e"/>
+    <circle cx="80" cy="26" r="7" fill="#28c840"/>
+    <text x="42" y="112" fill="#59ff94" font-family="Courier New, monospace" font-size="30" font-weight="700">&gt; securstack scan</text>
+    <text x="42" y="158" fill="#8fb0bf" font-family="Courier New, monospace" font-size="21">{ "format": "json" }</text>
+
+    <g transform="translate(42 205)">
+      <rect width="142" height="50" rx="12" fill="#102019" stroke="#2eea88" stroke-width="2"/>
+      <text x="71" y="32" text-anchor="middle" fill="#dffeed" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">SCAN</text>
+      <rect x="166" width="142" height="50" rx="12" fill="#102019" stroke="#2eea88" stroke-width="2"/>
+      <text x="237" y="32" text-anchor="middle" fill="#dffeed" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">POLICY</text>
+      <rect x="332" width="142" height="50" rx="12" fill="#102019" stroke="#2eea88" stroke-width="2"/>
+      <text x="403" y="32" text-anchor="middle" fill="#dffeed" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">DOCTOR</text>
     </g>
-  </g>
 
-  <g transform="translate(608 82)" filter="url(#softShadow)">
-    <rect x="0" y="0" width="320" height="244" rx="18" fill="#101e28" stroke="#375366" stroke-width="2"/>
-    <rect x="0" y="0" width="320" height="42" rx="18" fill="#162b39"/>
-    <circle cx="28" cy="22" r="7" fill="#ff5f57"/>
-    <circle cx="52" cy="22" r="7" fill="#ffbd2e"/>
-    <circle cx="76" cy="22" r="7" fill="#28c840"/>
-    <text x="28" y="90" fill="#59ff94" font-family="Courier New" font-size="24" font-weight="700">&gt; securstack scan</text>
-    <text x="28" y="128" fill="#8fb0bf" font-family="Courier New" font-size="18">{ "format": "json" }</text>
-    <g transform="translate(28 160)">
-      <rect width="86" height="12" rx="6" fill="#35d8ff"/>
-      <rect y="30" width="136" height="12" rx="6" fill="#7cff9b"/>
-      <rect y="60" width="104" height="12" rx="6" fill="#ffd166"/>
-      <circle cx="182" cy="6" r="9" fill="#7cff9b"/>
-      <path d="M177 6l4 4 8-9" fill="none" stroke="#081116" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(362 70)">
+      <path d="M82 0l66 26v66c0 61-39 103-66 116C55 195 16 153 16 92V26L82 0Z" fill="#102a25" stroke="url(#green)" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M51 94l23 23 49-58" fill="none" stroke="#7cff9b" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
-  </g>
 
-  <g transform="translate(762 252)" filter="url(#glow)">
-    <path d="M88 0l70 28v68c0 67-43 111-70 124C61 207 18 163 18 96V28L88 0Z" fill="#102a25" stroke="url(#green)" stroke-width="7" stroke-linejoin="round"/>
-    <path d="M55 103l24 24 52-63" fill="none" stroke="#7cff9b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  <g transform="translate(734 486)" filter="url(#softShadow)">
-    <rect width="252" height="72" rx="16" fill="#102019" stroke="#2eea88" stroke-width="2"/>
-    <text x="126" y="29" text-anchor="middle" fill="#dffeed" font-family="Arial" font-size="18" font-weight="800">POLICY CHECK</text>
-    <text x="126" y="56" text-anchor="middle" fill="#67ff99" font-family="Arial" font-size="28" font-weight="900">PASS</text>
-  </g>
-
-  <g stroke-linecap="round" fill="none" filter="url(#glow)">
-    <path d="M840 200H924C954 200 954 246 984 246H1030" stroke="#35d8ff" stroke-width="5"/>
-    <path d="M836 384H916C946 384 946 414 976 414H1032" stroke="#28e67e" stroke-width="5"/>
-    <path d="M682 326V410C682 438 706 438 734 438" stroke="#35d8ff" stroke-width="5"/>
-    <path d="M986 522H1050C1076 522 1076 492 1102 492" stroke="#28e67e" stroke-width="5"/>
-  </g>
-
-  <g transform="translate(974 78)" filter="url(#softShadow)">
-    <rect width="244" height="146" rx="18" fill="#101d27" stroke="#2b90b8" stroke-width="2"/>
-    <text x="24" y="34" fill="#ffffff" font-family="Arial" font-size="18" font-weight="800">VULNERABILITY SCAN</text>
-    <path d="M78 58a46 46 0 1 1-32 79" fill="none" stroke="#31d875" stroke-width="18"/>
-    <path d="M78 58a46 46 0 0 1 43 29" fill="none" stroke="#ffd166" stroke-width="18"/>
-    <path d="M121 87a46 46 0 0 1-9 48" fill="none" stroke="#ff5f57" stroke-width="18"/>
-    <g font-family="Arial" font-size="15" font-weight="700">
-      <text x="150" y="74" fill="#ff7468">critical 2</text>
-      <text x="150" y="102" fill="#ffd166">high 3</text>
-      <text x="150" y="130" fill="#7cff9b">low 12</text>
+    <g transform="translate(42 290)">
+      <rect width="474" height="42" rx="21" fill="#122f3c"/>
+      <rect width="330" height="42" rx="21" fill="url(#cyan)"/>
+      <text x="22" y="28" fill="#081116" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">safe non-destructive Harness tools</text>
     </g>
-  </g>
-
-  <g transform="translate(992 252)" filter="url(#softShadow)">
-    <rect width="236" height="162" rx="18" fill="#101d27" stroke="#2b90b8" stroke-width="2"/>
-    <text x="24" y="34" fill="#ffffff" font-family="Arial" font-size="18" font-weight="800">DEPENDENCY GRAPH</text>
-    <g stroke="#456a7a" stroke-width="3">
-      <path d="M118 82L60 58M118 82l58-30M118 82L68 122M118 82l72 54"/>
-    </g>
-    <g fill="#142b3a" stroke="#35d8ff" stroke-width="3">
-      <rect x="48" y="42" width="32" height="32" rx="7"/>
-      <rect x="160" y="36" width="32" height="32" rx="7"/>
-      <rect x="58" y="108" width="32" height="32" rx="7"/>
-    </g>
-    <rect x="100" y="64" width="44" height="44" rx="10" fill="#143323" stroke="#7cff9b" stroke-width="4"/>
-    <rect x="178" y="122" width="32" height="32" rx="7" fill="#143323" stroke="#7cff9b" stroke-width="3"/>
-  </g>
-
-  <g transform="translate(998 452)" filter="url(#softShadow)">
-    <rect width="226" height="112" rx="18" fill="#101d27" stroke="#2b90b8" stroke-width="2"/>
-    <text x="24" y="34" fill="#ffffff" font-family="Arial" font-size="18" font-weight="800">SAFE TOOLS</text>
-    <g transform="translate(26 58)" stroke-linecap="round">
-      <rect width="26" height="22" rx="5" fill="#122f3c" stroke="#35d8ff" stroke-width="2"/>
-      <path d="M8 12l4 4 8-10" stroke="#7cff9b" stroke-width="3" fill="none"/>
-      <rect x="48" y="5" width="102" height="12" rx="6" fill="#244151"/>
-      <rect x="48" y="5" width="72" height="12" rx="6" fill="#35d8ff"/>
-      <circle cx="174" cy="11" r="10" fill="#143323"/>
-      <path d="M169 11l4 4 8-10" stroke="#7cff9b" stroke-width="3" fill="none"/>
-    </g>
-  </g>
-
-  <g transform="translate(548 376)" filter="url(#softShadow)">
-    <rect width="166" height="104" rx="18" fill="#101d27" stroke="#2b90b8" stroke-width="2"/>
-    <text x="83" y="31" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="Arial" font-size="16" font-weight="800">JSON OUTPUT</text>
-    <text x="83" y="72" text-anchor="middle" dominant-baseline="middle" fill="#7cff9b" font-family="Courier New" font-size="34" font-weight="800">{ }</text>
-  </g>
-
-  <g transform="translate(524 252)" filter="url(#softShadow)">
-    <rect width="148" height="96" rx="18" fill="#101d27" stroke="#2b90b8" stroke-width="2"/>
-    <path d="M74 21v16M58 37h32" stroke="#35d8ff" stroke-width="5" stroke-linecap="round"/>
-    <path d="M56 43c-5 6-8 13-7 21 2 10 11 17 21 18m8 0c10-1 19-8 21-18 1-8-2-15-7-21" fill="none" stroke="#35d8ff" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="74" cy="54" r="18" fill="none" stroke="#35d8ff" stroke-width="5"/>
-    <text x="74" y="82" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="Arial" font-size="14" font-weight="800">DOCTOR</text>
-  </g>
-
-  <g transform="translate(516 118)" filter="url(#softShadow)">
-    <rect width="134" height="96" rx="18" fill="#101d27" stroke="#2b90b8" stroke-width="2"/>
-    <path d="M48 34l18 14-18 14" fill="none" stroke="#35d8ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M75 63h24" fill="none" stroke="#35d8ff" stroke-width="6" stroke-linecap="round"/>
-    <text x="67" y="79" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="Arial" font-size="12" font-weight="800">CLI ADAPTER</text>
   </g>
 </svg>
