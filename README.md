@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/securstack-dsh-plugin-social-preview.png" alt="SecurStack DeepSeek Harness Plugin" width="100%">
+  <img src="https://repository-images.githubusercontent.com/1333500201/8b9a7555-20b6-4863-acc9-0d7c6de1c1ed" alt="SecurStack DeepSeek Harness Plugin" width="100%">
 </p>
 
 # SecurStack DeepSeek Harness Plugin
@@ -78,10 +78,6 @@ npm test
 npm pack --dry-run
 ```
 
-For local Harness testing:
+## License
 
-```bash
-npm pack
-dsh plugin --profile demo add ./securstack-dsh-plugin-0.1.0.tgz
-dsh --profile demo --dump-config
-```
+MIT
