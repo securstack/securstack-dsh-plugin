@@ -7,6 +7,7 @@
   "types": "dist/index.d.mts",
   "files": [
     "dist",
+    "assets",
     "cordis.patch.yml",
     "README.md",
     "LICENSE"
@@ -16,7 +17,14 @@
     "deepseek-harness",
     "securstack",
     "security",
-    "ai-agent"
+    "ai-agent",
+    "sast",
+    "sca",
+    "dast",
+    "secrets",
+    "iac",
+    "policy-as-code",
+    "devsecops"
   ],
   "scripts": {
     "build": "tsdown src/index.ts --format esm --dts --deps.never-bundle @deepseek-ai/dsh-tools --deps.never-bundle @deepseek-ai/cordis",
