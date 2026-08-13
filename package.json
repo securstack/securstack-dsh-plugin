@@ -1,7 +1,7 @@
 {
   "name": "@securstack/dsh-plugin",
   "version": "0.1.0",
-  "description": "DeepSeek Harness plugin for SecurStack repository scans through the official SecurStack CLI.",
+  "description": "DeepSeek Harness plugin for SecurStack security scans, policy checks, doctor diagnostics, and JSON CLI results.",
   "type": "module",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mts",
