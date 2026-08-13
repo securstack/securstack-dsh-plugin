@@ -1,0 +1,56 @@
+{
+  "name": "@securstack/dsh-plugin",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin for SecurStack repository scans through the official SecurStack CLI.",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "securstack",
+    "security",
+    "ai-agent"
+  ],
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --deps.never-bundle @deepseek-ai/dsh-tools --deps.never-bundle @deepseek-ai/cordis",
+    "test": "npm run build && node --test",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run build"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-tools": "^0.0.1-rc.1"
+  },
+  "peerDependencies": {
+    "@securstack/cli": "^0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@securstack/cli": {
+      "optional": true
+    }
+  },
+  "optionalDependencies": {
+    "@securstack/cli": "^0.1.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/node": "^22.15.30",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
