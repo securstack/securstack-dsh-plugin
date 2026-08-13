@@ -1,0 +1,3 @@
+- insert:
+    - id: securstack-dsh-plugin
+      name: '@securstack/dsh-plugin'
