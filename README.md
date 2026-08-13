@@ -4,9 +4,20 @@
 
 # SecurStack DeepSeek Harness Plugin
 
-DeepSeek Harness plugin for running SecurStack repository scans through the official SecurStack CLI.
+DeepSeek Harness plugin for running SecurStack security checks directly from an AI-agent workflow.
+
+The plugin registers safe, non-destructive Harness tools that call the official `securstack` CLI to scan repositories, return structured JSON results, run environment diagnostics, and evaluate scan output against repository policy gates. It lets DeepSeek Harness ask SecurStack what is risky, what is misconfigured, and whether a codebase passes policy without reimplementing SecurStack product logic inside the plugin.
 
 This package is intentionally a thin adapter. It does not implement scan engines, encryption, upload logic, API contracts, or Shielding operations. Those responsibilities stay in `@securstack/cli` and the SecurStack SaaS.
+
+## Capabilities
+
+- Repository security scans via `securstack scan --format json`.
+- Policy gates for CI-like pass/fail decisions with `securstack policy check`.
+- Local setup and credential diagnostics through `securstack doctor`.
+- Harness-friendly tool responses with parsed JSON where the CLI promises JSON output.
+- Existing SecurStack authentication through `securstack login`, `SECURSTACK_API_KEY`, and `SECURSTACK_API_URL`.
+- Adapter-only design that avoids destructive hooks, Shielding writes, or duplicated product contracts in v1.
 
 ## Requirements
 
