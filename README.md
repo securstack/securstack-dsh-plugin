@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/securstack-dsh-plugin-banner.svg" alt="SecurStack DeepSeek Harness Plugin" width="100%">
+  <img src="assets/securstack-dsh-plugin-social-preview.png" alt="SecurStack DeepSeek Harness Plugin" width="100%">
 </p>
 
 # SecurStack DeepSeek Harness Plugin
