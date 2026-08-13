@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/securstack-dsh-plugin-banner.jpg" alt="SecurStack DeepSeek Harness Plugin" width="100%">
+</p>
+
 # SecurStack DeepSeek Harness Plugin
 
 DeepSeek Harness plugin for running SecurStack repository scans through the official SecurStack CLI.
