@@ -60,5 +60,9 @@
   "engines": {
     "node": ">=20"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/securstack/securstack-dsh-plugin"
+  }
 }
