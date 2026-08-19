@@ -1,6 +1,6 @@
 {
   "name": "@securstack/dsh-plugin",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "DeepSeek Harness plugin for SecurStack security scans, policy checks, doctor diagnostics, and JSON CLI results.",
   "type": "module",
   "main": "dist/index.mjs",
@@ -8,6 +8,7 @@
   "files": [
     "dist",
     "assets",
+    "docs",
     "cordis.patch.yml",
     "README.md",
     "LICENSE"
@@ -37,22 +38,13 @@
       "patch": "./cordis.patch.yml"
     }
   },
-  "dependencies": {
-    "@deepseek-ai/dsh-tools": "^0.0.1-rc.1"
-  },
   "peerDependencies": {
-    "@securstack/cli": "^0.1.0"
-  },
-  "peerDependenciesMeta": {
-    "@securstack/cli": {
-      "optional": true
-    }
-  },
-  "optionalDependencies": {
-    "@securstack/cli": "^0.1.0"
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.7"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.7",
     "@types/node": "^22.15.30",
     "tsdown": "^0.22.14",
     "typescript": "^5.8.3"
@@ -64,5 +56,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/securstack/securstack-dsh-plugin"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

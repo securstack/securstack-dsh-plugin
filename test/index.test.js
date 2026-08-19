@@ -1,6 +1,44 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { registerSecurStackTools } from '../dist/index.mjs'
+import { createHash } from 'node:crypto'
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { platformArtifactKey, registerSecurStackTools, resolveCliExecutable } from '../dist/index.mjs'
+
+test('managed CLI maps supported operating systems and architectures', () => {
+  assert.equal(platformArtifactKey('darwin', 'arm64'), 'darwin-arm64')
+  assert.equal(platformArtifactKey('win32', 'x64'), 'windows-x64')
+  assert.throws(() => platformArtifactKey('aix', 'x64'), /does not support platform/)
+})
+
+test('managed CLI downloads and verifies a missing binary', async () => {
+  const root = mkdtempSync(join(tmpdir(), 'securstack-dsh-cli-'))
+  const binary = Buffer.from('standalone-cli')
+  const sha256 = createHash('sha256').update(binary).digest('hex')
+  const responses = [
+    new Response(JSON.stringify({
+      version: '0.2.0',
+      artifacts: {
+        'darwin-arm64': { file: 'securstack-darwin-arm64', url: 'https://downloads.example/cli', sha256, size: binary.length },
+      },
+    })),
+    new Response(binary),
+  ]
+
+  try {
+    const executable = await resolveCliExecutable({
+      env: { PATH: '', SECURSTACK_CLI_MANIFEST_URL: 'https://downloads.example/manifest.json' },
+      platform: 'darwin',
+      arch: 'arm64',
+      home: root,
+      fetcher: async () => responses.shift(),
+    })
+    assert.equal(readFileSync(executable, 'utf8'), 'standalone-cli')
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+})
 
 test('securstack_scan runs the CLI with JSON output and parses findings', async () => {
   const calls = []

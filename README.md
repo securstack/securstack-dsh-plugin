@@ -40,6 +40,13 @@ SecurStack coverage is represented through the CLI contract exposed to Harness, 
   - `securstack login --api-key <key>`
   - `SECURSTACK_API_KEY` and optional `SECURSTACK_API_URL`
 
+The plugin reuses `SECURSTACK_CLI_PATH` or a `securstack` executable already
+available in `PATH`. On a clean machine it downloads the compatible standalone
+CLI, verifies its SHA-256 digest, and stores it under
+`~/.securstack/bin/<version>/`. The downloaded CLI itself does not require
+Node.js. `SECURSTACK_CLI_VERSION` and `SECURSTACK_CLI_MANIFEST_URL` can be used
+to pin or test another release.
+
 ## Install
 
 ```bash
@@ -78,6 +85,12 @@ npm test
 npm pack --dry-run
 ```
 
-## License
+Release and publishing operations are documented in [docs/release.md](docs/release.md). Releases must be authenticated as the `securstack` account on both npm and GitHub; personal accounts must not publish or push the public release.
 
-MIT
+For local Harness testing:
+
+```bash
+npm pack
+dsh plugin --profile demo add ./securstack-dsh-plugin-0.1.1.tgz
+dsh --profile demo --dump-config
+```

@@ -2,6 +2,9 @@ import type { Context } from '@deepseek-ai/cordis'
 import { defineTool } from '@deepseek-ai/dsh-tools'
 import type { JsonValue } from '@deepseek-ai/dsh-tools'
 import { spawn } from 'node:child_process'
+import { resolveCliExecutable } from './cli-manager.js'
+
+export { managedCliVersion, platformArtifactKey, resolveCliExecutable } from './cli-manager.js'
 
 export const name = 'securstack-dsh-plugin'
 export const inject = ['tools']
@@ -14,8 +17,10 @@ type CliResult = {
 
 type RunCli = (args: string[], options?: { cwd?: string }) => Promise<CliResult>
 
-export const defaultRunCli: RunCli = (args, options = {}) => new Promise((resolve, reject) => {
-  const child = spawn('securstack', args, {
+export const defaultRunCli: RunCli = async (args, options = {}) => {
+  const executable = await resolveCliExecutable()
+  return new Promise((resolve, reject) => {
+  const child = spawn(executable, args, {
     cwd: options.cwd,
     env: process.env,
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -35,7 +40,8 @@ export const defaultRunCli: RunCli = (args, options = {}) => new Promise((resolv
   child.on('close', (code) => {
     resolve({ code: code ?? 1, stdout, stderr })
   })
-})
+  })
+}
 
 export function apply(ctx: Context) {
   registerSecurStackTools(ctx, defaultRunCli)
