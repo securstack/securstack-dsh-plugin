@@ -25,7 +25,7 @@ Instrucoes para agentes trabalhando no `securstack-dsh-plugin`.
 
 - Consulte `docs/release.md` antes de preparar ou publicar uma versao.
 - A fonte operacional complementar e `../securstack-infra/docs/deepseek-harness-plugin.md`.
-- Publicacoes npm de `@securstack/dsh-plugin` devem autenticar exclusivamente como o usuario npm `securstack`. Execute `npm whoami --registry https://registry.npmjs.org/` e interrompa se a saida nao for exatamente `securstack`.
+- Publicacoes npm de `@securstack/dsh-plugin` devem usar o trusted publisher configurado pela conta npm `securstack` para `.github/workflows/publish-npm.yml`. OIDC nao e validado por `npm whoami`; valide pela execucao do publish no workflow.
 - Pushes para o remote publico `github` devem autenticar como a conta GitHub `securstack`. Nao use uma conta pessoal e nunca persista PAT em arquivos, docs, scripts ou URLs de remote.
 - O remote `origin` (Bitbucket) continua sendo o caminho normal de commit e push local; o remote `github` e a distribuicao publica.
 - Antes de publicar, rode `npm run typecheck`, `npm test` e `npm pack --dry-run`.

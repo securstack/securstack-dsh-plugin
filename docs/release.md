@@ -4,12 +4,12 @@ This is the release runbook for `@securstack/dsh-plugin`. The complementary infr
 
 ## Required identities
 
-- npm releases must be authenticated as the npm user `securstack`.
+- npm releases must use a trusted publisher configured by the npm user `securstack`.
 - Public GitHub pushes must be authenticated as the GitHub account `securstack`.
 - Personal accounts must not publish the npm package or push public releases.
 - Tokens and PATs must stay outside Git, documentation, scripts, environment examples, and persisted remote URLs.
 
-In the standard sibling-repository layout, the canonical local npm credential is stored in the ignored file `../securstack-infra/.env.npm-publish`, using the `SECURSTACK_NPM_TOKEN` variable. Its committed template is `../securstack-infra/.env.npm-publish.example`. The real value must never be committed.
+The release workflow uses GitHub OIDC and does not require a local npm token.
 
 The npm scope `@securstack` belongs to the npm user `securstack`; a separate npm organization is neither required nor expected for this package.
 
@@ -34,20 +34,7 @@ publish a plugin that points at a pending CLI release.
 ## Release checklist
 
 1. Confirm the intended version in `package.json` and `package-lock.json`.
-2. Confirm npm authentication before doing any publish work:
-
-   ```bash
-   set -a
-   source ../securstack-infra/.env.npm-publish
-   set +a
-   npm config set //registry.npmjs.org/:_authToken "$SECURSTACK_NPM_TOKEN"
-   unset SECURSTACK_NPM_TOKEN
-   npm whoami --registry https://registry.npmjs.org/
-   ```
-
-   The command must print exactly `securstack`. Stop if it prints another user or returns an authentication error.
-
-3. Validate the package:
+2. Validate the package:
 
    ```bash
    npm run typecheck
@@ -55,17 +42,11 @@ publish a plugin that points at a pending CLI release.
    npm pack --dry-run
    ```
 
-4. Commit generated `dist/` artifacts whenever source or generated declarations change. Git-based DSH installation requires `dist/index.mjs` to exist in the repository.
-5. Push the reviewed commit to `origin main`.
-6. Push the equivalent reviewed change to `github main`, authenticated as GitHub `securstack`. Do not use a personal account and do not force-push.
-7. Publish the public npm package:
-
-   ```bash
-   npm publish --access public --registry https://registry.npmjs.org/
-   ```
-
-   `publishConfig` also pins public access and the official npm registry, but the explicit flags make the release intent auditable.
-
+3. Commit generated `dist/` artifacts whenever source or generated declarations change. Git-based DSH installation requires `dist/index.mjs` to exist in the repository.
+4. Push the reviewed commit to `origin main`.
+5. Push the equivalent reviewed change to `github main`, authenticated as GitHub `securstack`. Do not use a personal account and do not force-push.
+6. On npmjs.com, configure `@securstack/dsh-plugin` trusted publishing for GitHub organization `securstack`, repository `securstack-dsh-plugin`, workflow file `publish-npm.yml`, and permission to run `npm publish`. Create or refresh the connection immediately before publishing; npm requires the first successful publish within two days.
+7. Run `Publish npm package` on `main` in GitHub Actions. Its OIDC token is short-lived and scoped to the workflow; the job validates the package and publishes it without `SECURSTACK_NPM_TOKEN`. Do not use `npm whoami` to validate OIDC, because it is not an OIDC publish check.
 8. Verify the registry result:
 
    ```bash
